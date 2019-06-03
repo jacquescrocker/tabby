@@ -3,11 +3,11 @@ $:.push File.expand_path("../lib", __FILE__)
 
 Gem::Specification.new do |s|
   s.name        = "tabby"
-  s.version     = "0.1.0"
+  s.version     = "0.2.0"
   s.platform    = Gem::Platform::RUBY
-  s.authors     = ["Matte Noble"]
-  s.email       = ["me@mattenoble.com"]
-  s.homepage    = "http://github.com/mnoble/tabby"
+  s.authors     = ["Jacques Crocker", "Matte Noble"]
+  s.email       = ["jacques@nodeknockout.com", "me@mattenoble.com"]
+  s.homepage    = "http://github.com/jacquescrocker/tabby2"
   s.summary     = %q{Simple iTerm2 project environment setup.}
   s.description = %q{Simple iTerm2 project environment setup.}
 
