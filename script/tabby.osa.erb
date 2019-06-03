@@ -1,8 +1,10 @@
-tell current window
-    create tab with default profile
-    tell the current session
-        set name to "<%= title %>"
-        write text "cd \"<%= basedir %>\" && clear"
-        <%= commands %>
+tell application "iTerm2"
+    tell current window
+        create tab with default profile
+        tell the current session
+            set name to "<%= title %>"
+            write text "cd \"<%= basedir %>\" && clear"
+            <%= commands %>
+        end tell
     end tell
 end tell
