@@ -3,8 +3,16 @@ Tabby is a simple iTerm2 environment configuration tool. It allows you to create
 
 ## Usage
 
-### Defining Environments
-Environments should be stored in `~/.tabby/`, using a simple and short name. We'll walk through building my `~/.tabby/blog.rb` environment.
+### Install
+
+`gem install tabby2`
+
+### Creating Projects
+
+`tabby create PROJECT_NAME`
+
+### Editing Projects
+Projects are stored in `~/.tabby/`, using a simple and short name. You can edit them at anytime by running `tabby edit PROJECT_NAME`
 
 Tabby environments are just regular Ruby classes. The filename and classname should match, with the classname following regular Ruby standards:
 
@@ -33,8 +41,8 @@ Creating tabs is just a matter of creating methods. There should be one method p
 
 Each tab will start off by `cd`'ing into the environment's `basedir`. Then it will execute it's list of commands in order.
 
-### Starting An Environment
-    tabby blog
+### Starting An Project
+    tabby open blog
 
 ![tabby](https://github.com/mnoble/tabby/raw/master/screenshot.png)
 
