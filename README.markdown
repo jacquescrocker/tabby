@@ -11,6 +11,10 @@ Tabby is a simple iTerm2 environment configuration tool. It allows you to create
 
 `tabby create PROJECT_NAME`
 
+### Listing Projects
+
+`tabby list`
+
 ### Editing Projects
 Projects are stored in `~/.tabby/`, using a simple and short name. You can edit them at anytime by running `tabby edit PROJECT_NAME`
 
