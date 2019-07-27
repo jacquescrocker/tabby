@@ -1,6 +1,9 @@
 module Tabby
   class Base
-    class << self; attr_reader :_basedir; end
+    class << self
+      attr_reader :_basedir
+      attr_reader :_tabs
+    end
 
     # Sets the project root directory.
     #
@@ -9,6 +12,12 @@ module Tabby
     #
     def self.basedir(dir)
       @_basedir = dir
+    end
+
+    # define a tab
+    def self.tab(name, &block)
+      @_tabs ||= []
+      @_tabs << [name, block]
     end
 
     # List of commands for the current tab to execute.
@@ -25,7 +34,7 @@ module Tabby
     end
 
     # Queue a command to be executed when the tab gets created.
-    # 
+    #
     # Parameters:
     #   command   bash/zsh/etc command to be executed
     #
@@ -38,10 +47,17 @@ module Tabby
     # with spaces.
     #
     def call
-      self.class.instance_methods(false).each do |method|
+      self.class.instance_methods(false).sort.each do |method|
         @commands = []
-        @title    = method
+        @title    = method.gsub("_", " ")
         send(method)
+        create_tab
+      end
+
+      self.class._tabs.each do |title, block|
+        @commands = []
+        @title    = title
+        self.instance_exec(&block)
         create_tab
       end
     end
